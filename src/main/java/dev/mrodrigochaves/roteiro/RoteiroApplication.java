@@ -17,7 +17,7 @@ public class RoteiroApplication {
 	}
 
 	@GetMapping("/home")
-	public String apiRoot(){
+	public String apiHome(){
 		return "Olá, seja bem-vindo!";
 	}
 
