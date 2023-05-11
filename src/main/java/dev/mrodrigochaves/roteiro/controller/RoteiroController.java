@@ -12,7 +12,7 @@ import lombok.AllArgsConstructor;
 
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/roteiro")
 @AllArgsConstructor
 public class RoteiroController {
 

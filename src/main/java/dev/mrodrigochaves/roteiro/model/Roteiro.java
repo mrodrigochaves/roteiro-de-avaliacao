@@ -19,6 +19,6 @@ public class Roteiro {
     private String name;
 
     @Column(length = 13, nullable = false)
-    private Double protocol;
+    private String protocol;
 
 }
