@@ -21,4 +21,14 @@ public class Roteiro {
     @Column(length = 13, nullable = false)
     private String protocol;
 
+    @Column(length = 9, nullable = false)
+    private String cnae;
+
+    @Column(length = 200, nullable = false)
+    private String description;
+
+    @Column(length = 12, nullable = false)
+    private String grau;
+
+
 }
