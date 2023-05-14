@@ -9,6 +9,7 @@ import lombok.Data;
 
 @Data
 @Entity
+
 public class Roteiro {
     
     @Id
@@ -21,14 +22,18 @@ public class Roteiro {
     @Column(length = 13, nullable = false)
     private String protocol;
 
-    @Column(length = 9, nullable = false)
+    @Column(length = 9)
     private String cnae;
 
-    @Column(length = 200, nullable = false)
+    @Column(length = 200)
     private String description;
 
-    @Column(length = 12, nullable = false)
-    private String grau;
+    @Column(length = 12)
+    private String degree;
+
+    @Column(length = 12)
+    private String activity;
+    
 
 
 }
