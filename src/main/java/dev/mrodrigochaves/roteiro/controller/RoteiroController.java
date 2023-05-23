@@ -20,32 +20,43 @@ import lombok.AllArgsConstructor;
 @RestController
 @RequestMapping("/api/roteiro")
 @AllArgsConstructor
-
 public class RoteiroController {
 
-    
     private RoteiroRepository roteirosRepository;
 
-
-    //@RequestMapping(method = RequestMethod.GET)
+    /**
+     * Endpoint para obter todos os roteiros.
+     *
+     * @return Lista de roteiros
+     */
     @GetMapping
-    public @ResponseBody List<Roteiro> list(){
+    public @ResponseBody List<Roteiro> listar() {
         return roteirosRepository.findAll();
     }
 
+    /**
+     * Endpoint para obter um roteiro específico pelo seu ID.
+     *
+     * @param id O ID do roteiro a ser obtido
+     * @return ResponseEntity contendo o roteiro, se encontrado, ou status de não encontrado caso contrário
+     */
     @GetMapping("/{id}")
-    public ResponseEntity<Roteiro> findById(@PathVariable Long id){
+    public ResponseEntity<Roteiro> encontrarPorId(@PathVariable Long id) {
         return roteirosRepository.findById(id)
-        .map(record -> ResponseEntity.ok().body(record))
-        .orElse(ResponseEntity.notFound().build());
-    } 
-
-    //@RequestMapping(method = RequestMethod.POST)
-    @PostMapping
-    @ResponseStatus(code = HttpStatus.CREATED )
-    public Roteiro create(@RequestBody Roteiro roteiro ) {
-        return roteirosRepository.save(roteiro);
-              
+                .map(registro -> ResponseEntity.ok().body(registro))
+                .orElse(ResponseEntity.notFound().build());
     }
-    
+
+    /**
+     * Endpoint para criar um novo roteiro.
+     *
+     * @param roteiro O objeto roteiro a ser criado
+     * @return O objeto roteiro criado
+     */
+    @PostMapping
+    @ResponseStatus(code = HttpStatus.CREATED)
+    public Roteiro criar(@RequestBody Roteiro roteiro) {
+        return roteirosRepository.save(roteiro);
+    }
+
 }
